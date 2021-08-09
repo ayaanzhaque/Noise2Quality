@@ -6,6 +6,10 @@ We propose SSPWAM, a novel, self-supervised IQA model which predicts SSIM Image 
 
 ## Abstract
 
+CT image quality is reliant on radiation dose, as low dose CT (LDCT) scans yield increased noise in images. This compromises the diagnostic performance on such scans. Therefore, it is desirable to perform Image Quality Assessment (IQA) prior to diagnostic use of CT scans. Often, image quality is assessed with full-reference methods, where a LDCT is algorithmically compared against its full dose (FDCT) counterpart. However due to health concerns, acquiring full-dose CT scans is challenging and not feasible. As an alternative, non-reference IQA (NR-IQA) has received attention. Moreover, IQA on a pixel-wise level is important, as most IQA methods only provide a global assessment, which means localized regions of interest cannot be specifically assessed. A solution for localized-IQA is to produce visually-interpretable quality maps. Deep learning has been employed to perform NR-IQA, however almost all methods, especially in CT, only focus on global-IQA. Deep learning methods could see improved performance by leverage computer vision techniques, such as Self-Supervised learning (SSL).
+
+In this work, we propose a novel Self-Supervised, non-reference Pixel-Wise image quality Assessment Map deep learning model, namely SSPWAM, to predict image quality maps for low-dose CT (LDCT) scans. We leverage a U-Net-like model architecture to map an entire LDCT scan to SSIM image quality maps while simultaneously performing a self-supervised dose level classification task to improve model performance. Our experimentation proves the effectiveness of our method in accurately predicting SSIM quality maps, which are consistent both qualitatively and quantitatively.
+
 ## Model
 
 ![Figure](https://github.com/ayaanzhaque/SSPWAM/blob/main/images/model_diagram.jpg?raw=true)
@@ -21,6 +25,8 @@ We primarily collect abdomen scans from the publicly available [Mayo CT](https:/
 ## Results
 
 A brief summary of our results are shown below. Our algorithm SSPWAM and is compared to various baseline architectures and training procedures. In the table, the best scores are bolded.
+
+![Figure](https://github.com/ayaanzhaque/SSPWAM/blob/main/images/results_table.png?raw=true)
 
 ## Code
 
