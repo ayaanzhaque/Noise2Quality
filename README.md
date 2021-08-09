@@ -30,7 +30,7 @@ A brief summary of our results are shown below. Our algorithm SSPWAM and is comp
 
 ## Code
 
-The code has been written in Python using the Pytorch framework. Training requries a GPU. We provide a Jupyter Notebook, which can be run in Google Colab, containing the algorithm in a usable version. Open [SSPWAM.ipynb]() and run it through. Uncomment the training cell to train the model.
+The code has been written in Python using the Pytorch framework. Training requries a GPU. We provide a Jupyter Notebook, which can be run in Google Colab, containing the algorithm in a usable version. Open [```SSPWAM.ipynb```](https://github.com/ayaanzhaque/SSPWAM/blob/main/SSPWAM.ipynb) and run it through. Uncomment the training cell to train the model.
 
 ## Citation
 
