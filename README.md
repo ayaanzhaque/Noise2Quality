@@ -2,7 +2,7 @@
 
 This repository contains the implementation of the paper "Non-Reference, Pixel-Wise Assessment of Low Dose CT Image Quality" by Ayaan Haque, Adam Wang, and Abdullah-Al-Zubaer Imran.
 
-We propose SSPWAM, a novel, self-supervised IQA model which predicts SSIM Image Quality maps from low-dose CT. We propose a self-supervised regularization task of dose-level estimation creating a multi-tasking framework to improve performance.
+We propose IQAM, a novel, self-supervised IQA model which predicts SSIM Image Quality maps from low-dose CT. We propose a self-supervised regularization task of dose-level estimation creating a multi-tasking framework to improve performance.
 
 ## Abstract
 
