@@ -1,8 +1,8 @@
-# IQAM
+# Noise2Quality
 
 This repository contains the implementation of the paper "Non-Reference, Pixel-Wise Assessment of Low Dose CT Image Quality" by Ayaan Haque, Adam Wang, and Abdullah-Al-Zubaer Imran.
 
-We propose IQAM, a novel, self-supervised IQA model which predicts SSIM Image Quality maps from low-dose CT. We propose a self-supervised regularization task of dose-level estimation creating a multi-tasking framework to improve performance.
+We propose Noise2Quality (N2Q), a novel, self-supervised IQA model which predicts SSIM Image Quality maps from low-dose CT. We propose a self-supervised regularization task of dose-level estimation creating a multi-tasking framework to improve performance.
 
 ## Abstract
 
@@ -20,13 +20,13 @@ We primarily collect abdomen scans from the publicly available [Mayo CT](https:/
 
 ## Results
 
-A brief summary of our results are shown below. Our algorithm IQAM and is compared to various baseline architectures and training procedures. In the table, the best scores are bolded.
+A brief summary of our results are shown below. Our algorithm N2Q and is compared to various baseline architectures and training procedures. In the table, the best scores are bolded.
 
 ![Figure](https://github.com/ayaanzhaque/IQAM/blob/main/images/results_table.png?raw=true)
 
 ## Code
 
-The code has been written in Python using the Pytorch framework. Training requries a GPU. We provide a Jupyter Notebook, which can be run in Google Colab, containing the algorithm in a usable version. Open [```IQAM.ipynb```](https://github.com/ayaanzhaque/IQAM/blob/main/IQAM.ipynb) and run it through. Uncomment the training cell to train the model.
+The code has been written in Python using the Pytorch framework. Training requries a GPU. We provide a Jupyter Notebook, which can be run in Google Colab, containing the algorithm in a usable version. Open [```N2Q.ipynb```](https://github.com/ayaanzhaque/IQAM/blob/main/IQAM.ipynb) and run it through. Uncomment the training cell to train the model.
 
 ## Citation
 
