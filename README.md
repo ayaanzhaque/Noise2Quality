@@ -30,11 +30,3 @@ A brief summary of our results are shown below. Our algorithm N2Q and is compare
 
 The code has been written in Python using the Pytorch framework. Training requries a GPU. We provide a Jupyter Notebook, which can be run in Google Colab, containing the algorithm in a usable version. Open [```N2Q.ipynb```](https://github.com/ayaanzhaque/Noise2Quality/blob/main/N2Q.ipynb) and run it through. Uncomment the training cell to train the model.
 
-## Citation
-
-If you find this repo or the paper useful, please cite:
-
-```
-citation
-```
-
