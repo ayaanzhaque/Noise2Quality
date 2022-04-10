@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Noise2Quality</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Noise2Quality: Non-Reference, Pixel-Wise Assessment of Low Dose CT Image Quality</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a>Ayaan Haque</a><sup>1,2</sup>,</span>
+              <span class="author-block">
+                <a>Adam Wang</a><sup>2</sup>,
+              </span>
+            <span class="author-block">
+              <a>Abdullah-Al-Zubaer Imran</a><sup>2</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Saratoga High School</span>,
+            <span class="author-block"><sup>2</sup>Stanford University</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="static/n2q_paper.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+			  <span class="link-block">
+                <a href="static/SPIE Poster.pptx.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Poster</span>
+                </a>
+              </span>
+			  <span class="link-block">
+                <a href="static/SPIE Teaser Presentation.pptx.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+					<i class="fas fa-file-powerpoint"></i>
+                  </span>
+                  <span>Slides</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://spie.org/medical-imaging/presentation/Noise2Quality--non-Reference-pixel-wise-assessment-of-low-dose/12035-55?SSO=1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-book"></i>
+                  </span>
+                  <span>Proceedings</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/ayaanzhaque/Noise2Quality"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class='section'>
+	<div class='container'>
+	  <div class="columns is-centered has-text-centered">
+		<div class="column is-two-thirds">
+		  <div class="content has-text-justified">
+	  <img src="static/images/model_fig.jpg" style='width:100%;'>
+	</div>
+  </div>
+  </div>
+  </div>
+  </section>
+
+<section class="section">
+  <div class="container">
+
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-two-thirds">
+        <h2 class="title is-2">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            CT image quality is reliant on radiation dose, as low dose CT (LDCT) scans contain increased noise in images. 
+            This compromises the diagnostic performance on such scans. Therefore, it is desirable to perform Image 
+            Quality Assessment (IQA) prior to diagnostic use of CT scans. Often, image quality is assessed with 
+            full-reference methods, where a LDCT is algorithmically compared against its full dose counterpart. 
+            However due to health concerns, acquiring full dose CT scans is challenging and not desirable. As an 
+            alternative, non-reference IQA (NR-IQA) can be performed. Moreover, IQA at the pixel level is important, 
+            as most IQA methods only provide a global assessment, which means localized regions of interest cannot be 
+            specifically assessed. A solution for localized-IQA is to produce visually-interpretable quality maps. 
+            Deep learning methods could be employed by leveraging computer vision techniques, such as Self-Supervised 
+            learning (SSL). In this work, we propose Noise2Quality (N2Q)---a novel self-supervised, non-reference, 
+            pixel-wise image quality assessment model to predict IQA maps from LDCTs. Self-supervised dose level 
+            prediction as an auxiliary task further improves the model performance. Our experimental evaluation 
+            both qualitatively and quantitatively demonstrates the effectiveness of the model in accurately 
+            predicting IQA maps over various baselines.
+          </p>
+          <p>
+            This paper was accepted to <a href="https://spie.org/conferences-and-exhibitions/medical-imaging">SPIE Medical Imaging 2022</a>. The paper was presented in February at the conference in San Diego and is availabe in the
+            proceedings. <a href = "https://twitter.com/SPIEtweets/status/1496292991333548035">Here</a> are some photos of us presenting.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/ Abstract. -->
+
+  <!-- Paper video. -->
+  <!-- <div class="columns is-centered has-text-centered">
+    <div class="column is-two-thirds">
+      <h2 class="title is-2">Video</h2>
+      <div class="publication-video">
+        <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div> -->
+  <!--/ Paper video. -->
+</section>
+
+<section class='section'>
+	<div class='container'>
+	  <div class="columns is-centered">
+		<div class="column is-two-thirds">
+      <h2 class="title is-2 has-text-centered">Methods</h2>
+		  <div class="content has-text-justified">
+	    <img src="static/images/data.png" style='width:100%;'>
+  	</div>
+
+    <p>
+      <li>Our model performs localized CT image quality assessment using a deep learning method.</li>
+      <li>We predict SSIM quality maps based on an input low-dose CT image. We calculate SSIM maps using the full-dose
+        reference for our training set. We train the model to map LDCT to quality maps.
+      </li>
+        <li>We leverage an innovate self-supervised auxiliary task of predicting the dose level of the LDCT. This
+          helps the network learn additional relevant features while preventing overfitting and improving generalization.
+        </li>
+          <li>We use a standard U-Net architecture as our backbone which can be replaced with improved models.
+            Our loss function contains two components: the MSE loss for SSIM maps and the auxiliary task loss for dose level prediction.
+          </li>
+    </p>
+
+  </div>
+  </div>
+  </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+
+      <h2 class="title is-2 has-text-centered">Visualizations and Metrics</h2>
+  
+      <div class="columns is-centered">
+  
+        <!-- Visual Effects. -->
+        <div class="column">
+          <div class="content">
+            <img src="static/images/table-results.png" style='width:100%;'>
+          </div>
+        </div>
+        <!--/ Visual Effects. -->
+  
+        <!-- Matting. -->
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <img src="static/images/qual-results.png" style='width:100%;'>
+            </div>
+  
+          </div>
+        </div>
+      </div>
+      <!--/ Matting. -->
+  
+    </div>
+  </section>
+
+
+</section>
+
+<!-- Animation. -->
+<!-- <section class="section">
+  <div class="container-fluid">
+<div class="columns is-centered has-text-centered">
+  <div class="column is-two-thirds">
+    <h2 class="title is-2">Paper</h2>
+    <div class="content has-text-justified">
+
+    <embed src="static/sswl-idn-paper.pdf" width="100%" height='700px'/>
+  
+</div>
+</div>
+</div>
+</div>
+</section> -->
+
+<!-- Animation. -->
+<section class="section">
+  <div class="container-fluid">
+<div class="columns is-centered has-text-centered">
+  <div class="column is-two-thirds">
+    <h2 class="title is-2">Poster</h2>
+    <div class="content has-text-justified">
+
+    <embed src="static/SPIE Poster.pptx.pdf" width="100%" height='700px'/>
+  
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{haque2022noise2quality,
+      title={Noise2Quality: non-reference, pixel-wise assessment of low dose CT image quality},
+      author={Haque, Ayaan and Wang, Adam S and Imran, AAZ},
+      booktitle={Medical Imaging 2022: Image Perception, Observer Performance, and Technology Assessment},
+      volume={12035},
+      year={2022},
+      organization={SPIE}
+    }
+</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="static/n2q_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/ayaanzhaque/Noise2Quality" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website template was borrowed from <a href="https://github.com/nerfies/nerfies.github.io">here</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
